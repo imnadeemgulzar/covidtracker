@@ -12,20 +12,18 @@ function App() {
       );
       const actualData = await res.json();
       setData(Object.entries(actualData).map((stateData) => stateData));
-      setDistData(Object.entries(actualData).map((stateData) => stateData[1].districts))
+      setDistData(actualData);
 
     };
       useEffect(() => {
         getCovidData();
       }, []);
   return (
-    <>
     <Routes>
       <Route path="/" exact element = {<LoginPage/>}/>
       <Route path="/StatesPage" exact element = {<StatesPage data = {data} setDistData={setDistData}/>}/>
-      <Route path="/DistrictPage" exact element = {<DistrictPage distData = {distData}/>} />
+      <Route path="/DistrictPage/:data" exact element = {<DistrictPage distData = {distData}/>} />
     </Routes>
-      </>
   );
 }
 
