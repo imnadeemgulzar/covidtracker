@@ -1,28 +1,19 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer,toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [auth, setAuth] = useState("");
-  const [showAuth, setShowAuth] = useState(false);
-  const userRef = useRef();
   const user = "nadeem";
   const pwd = "1234";
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
+  const notify = (e) => {
     e.preventDefault();
     if (username !== user) {
-      userRef.current.style.border = "1px solid red";
-      setAuth("wrong username");
-      navigate("/");
-      userRef.current.style.color = "red";
-      setShowAuth(!showAuth);
+  toast.error("wrong username");
     } else if (password !== pwd) {
-      userRef.current.style.border = "1px solid red";
-      navigate("/");
-      setAuth("wrong password");
-      setShowAuth(!showAuth);
-      userRef.current.style.color = "red";
+  toast.error("wrong password");
     } else {
       navigate("/StatesPage");
     }
@@ -34,16 +25,9 @@ const LoginPage = () => {
       </h1>
       <form
         className="bg-green-200 py-20 px-28 flex flex-col justify-center space-y-8 rounded-md"
-        onSubmit={handleSubmit}
+        onSubmit={notify}
       >
-        <div
-          ref={userRef}
-          className={`bg-white -mt-20 px-6 rounded-md ${
-            !showAuth ? "hidden" : "flex"
-          }`}
-        >
-          {auth}
-        </div>
+            <ToastContainer position="top-center" autoClose={2000} hideProgressBar={true}/>
          <input
             type="text"
             placeholder="username"

@@ -22,20 +22,20 @@ const DistrictPage = (props) => {
       onChange={(e) => setSearchItem(e.target.value)}></input>
       </div>
       <div className="bg-stone-700 text-white flex justify-around items-start flex-wrap">
-        {Object.entries(distList).filter(([k,v]) =>{
+        {Object.entries(distList).filter(([distName,distData]) =>{
           if(searchItem === ""){
-            return k
-          }else if(k.toLowerCase().includes(searchItem.toLowerCase())){
-            return k
+            return distName
+          }else if(distName.toLowerCase().includes(searchItem.toLowerCase())){
+            return distName
           }
-        }).map(([k,v]) =>{
+        }).map(([distName,distData]) =>{
           return (
             <StateCard
               distName = "District"
-              stateCode={k}
-              conf={v.total?.confirmed}
-              dec={v.total?.deceased}
-              rec={v.total?.recovered}
+              stateCode={distName}
+              conf={distData.total?.confirmed}
+              dec={distData.total?.deceased}
+              rec={distData.total?.recovered}
             />
           )
         })}
