@@ -14,11 +14,11 @@ const DistrictPage = (props) => {
   const [searchItem,setSearchItem] = useState("")
   return (
     <>
-    <div className="bg-zinc-500  px-8 py-2 justify-around flex">
+    <div className="bg-zinc-500 flex flex-col space-y-2 px-4 py-2 sm:flex-row sm:justify-around">
       <h1 className="text-4xl font-bold text-white">
         Live Covid Tracker - DISTRICT DATA
       </h1>
-      <input placeholder="Search District" className="rounded-full px-16 outline-none text-sm text-slate-600"
+      <input placeholder="Search District" className="rounded-full px-10 py-2 sm:px-16 outline-none text-sm text-slate-600"
       onChange={(e) => setSearchItem(e.target.value)}></input>
       </div>
       <div className="bg-stone-700 text-white flex justify-around items-start flex-wrap">

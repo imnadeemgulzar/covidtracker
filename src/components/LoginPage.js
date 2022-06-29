@@ -20,11 +20,11 @@ const LoginPage = () => {
   };
   return (
     <div className="flex justify-center items-center bg-stone-700 h-screen flex-col">
-      <h1 className="font-bold text-4xl text-stone-700 mb-2 bg-green-100 px-24 py-2 rounded-t-3xl">
+      <h1 className="font-bold sm:text-4xl text-3xl text-stone-700 mb-2 bg-green-100 px-16 sm:px-24 py-2 rounded-t-3xl">
         Live Covid Tracker
       </h1>
       <form
-        className="bg-green-200 py-20 px-28 flex flex-col justify-center space-y-8 rounded-md"
+        className="bg-green-200 py-20 sm:px-28 px-16 flex flex-col justify-center space-y-8 rounded-md"
         onSubmit={notify}
       >
             <ToastContainer position="top-center" autoClose={2000} hideProgressBar={true}/>
